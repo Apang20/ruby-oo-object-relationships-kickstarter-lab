@@ -12,11 +12,11 @@ ProjectBacker.new(self, backer)
 end 
 
 def backers #array of backers associated with THIS project instance 
-    pb = ProjectBacker.all.select do |project_backer|
-        project_backer.project == self 
+    pb = ProjectBacker.all.select do |project_backer| #iterate over the joiner Class 
+        project_backer.project == self                #only want the self project
 end 
-pb.map do | item |
-    item.backer
+pb.map do | item | #we iterate again in the nested array to return the backers associated...
+    item.backer    #with the self project
 end 
 end
 
